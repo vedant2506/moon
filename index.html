@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: none;
+            width: 200px;
+            background: #e3362c;
+            color: #fff;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        input {
+            display: none;
+        }
+
+        .container {
+            width: 300px;
+            height: 50vh;
+            background: #d1d1d1;
+            /* border: 2px solid black; */
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+        }
+
+        button {
+            outline: none;
+            background: #e3362c;
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+            border-radius: 10px;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img src="" id="photo" width="200px" height="auto">
+    </div>
+    <button id="i1"
+        onclick="document.getElementById('photo').src='1.jpg'; document.getElementById('i1').style.display='none'; document.getElementById('i2').style.display ='block'; ">144p</button>
+
+
+    <button id="i2" style="display: none;"
+        onclick="document.getElementById('photo').src='2.jpg'; document.getElementById('i3').style.display ='block'; document.getElementById('i2').style.display='none';">240p</button>
+
+
+    <button id="i3" style="display: none;"
+        onclick="document.getElementById('photo').src='3.jpeg'; document.getElementById('i4').style.display ='block'; document.getElementById('i3').style.display='none';">360p</button>
+
+    <button id="i4" style="display: none;"
+        onclick="document.getElementById('photo').src='4.avif'; document.getElementById('i5').style.display ='block'; document.getElementById('i4').style.display='none';">480p</button>
+
+    <button id="i5" style="display: none;"
+        onclick="document.getElementById('photo').src='5.jpg'; document.getElementById('i6').style.display ='block'; document.getElementById('i5').style.display='none';">720p</button>
+
+    <button id="i6" style="display: none;" onclick="i6();">1080p</button>
+    <!-- <button id="i6" style="display: none;"
+        onclick="document.getElementById('photo').src=''; document.getElementById('i7').style.display ='block'; document.getElementById('i6').style.display='none';">1080p</button> -->
+
+
+
+    <label for="input-file" id="lab">Add Your image</label>
+    <input type="file" name="image/jpeg, image/png, image/jpg" id="input-file">
+    <h1 id="moon" style="color: red;"></h1>
+
+    <script>
+        let dp = document.getElementById('photo');
+        let inpFile = document.getElementById('input-file');
+
+        inpFile.onchange = function () {
+            dp.src = URL.createObjectURL(inpFile.files[0]);
+            document.getElementById('moon').innerHTML = "The moon is beautiful isn't it?";
+        }
+
+        function i6() {
+            let i6 = document.getElementById('i6');
+            i6.style.display = "none";
+            document.getElementById('lab').style.display = "block";
+
+        }
+
+    </script>
+
+</body>
+
+</html>
